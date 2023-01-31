@@ -59,7 +59,7 @@ function Products() {
           </h2>
           <p className="card-text">Site Completo</p>
           <Link
-            href="contact"
+            to="contact"
             className="btn botao2"
             style={{ backgroundColor: "#37af96", color: "#fafafa" }}
           >
