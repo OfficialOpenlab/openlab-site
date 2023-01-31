@@ -1,0 +1,47 @@
+.font_title_navbar {
+  font-family: "Cinzel", serif;
+  font-size: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 2.5%;
+}
+
+.nav_content {
+  font-family: "Cinzel", serif;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 200%;
+}
+
+.margin_item {
+  margin-left: 10%;
+}
+
+.svg_a1 {
+  width: 2.5rem;
+  align-self: center;
+}
+
+.svg_a2 {
+  width: 3rem;
+  align-self: center;
+}
+
+.svg_sacola {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+}
+
+.svg_user {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+}

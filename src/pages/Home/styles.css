@@ -1,0 +1,36 @@
+.main_content {
+  height: 100vh;
+}
+
+.row {
+  height: 100%;
+}
+
+.img_content {
+  background-image: url("/src/Img/home1.png");
+  background-size: cover;
+}
+
+.text_content {
+  background-color: #2b7d6c;
+  text-align: left;
+  color: #fafafa;
+  padding-left: 6.5%;
+  padding-top: 4%;
+}
+
+.text_content h1 {
+  font-size: 500%;
+}
+
+.text_content h2 {
+  font-size: 300%;
+}
+
+.buton1 {
+  margin-top: 7.5%;
+  padding: 2% 15%;
+  border-radius: 5rem;
+  font-size: 3rem;
+  color: #fafafa;
+}

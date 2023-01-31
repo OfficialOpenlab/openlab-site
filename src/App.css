@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ body{
+   background-color: #d1cc9b
+ }
+
+ a{
+  text-decoration: none;
+  color: #fafafa;
+}
