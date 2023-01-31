@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./styles.css";
 
 function Contact() {
@@ -10,6 +11,7 @@ function Contact() {
   const [activity, setActivity] = useState("");
   const [number, setNumber] = useState("");
   const [what, setWhat] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("contador")) {
       setContador(localStorage.getItem("contador"));
@@ -56,12 +58,12 @@ function Contact() {
       localStorage.setItem("website", website);
       localStorage.setItem("email", email);
       localStorage.setItem("contact", contact);
-      window.location = '/contact';
+      navigate('/contact');
     }
   };
   const handleClickBackButton = () => {
     localStorage.setItem("contador", "");
-    window.location = '/contact';
+    navigate('/contact');
   };
   const handleClickSendButton = () => {
     if (activity && number && what) {
