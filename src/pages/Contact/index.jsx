@@ -139,7 +139,7 @@ function Contact() {
       )}
       {contador === "2" && (
         <div className="container-fluid">
-          <form className="forms1">
+          <form className="forms1" onSubmit={handleSubmit}>
             <div className="content_form1">
               <div className="row mb-3">
                 <div className="">
