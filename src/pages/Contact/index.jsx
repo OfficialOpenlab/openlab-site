@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 
 function Contact() {
-  const [contador, setContador] = useState("1");
+  const [contador, setContador] = useState("");
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
   const [email, setEmail] = useState("");
@@ -54,12 +54,12 @@ function Contact() {
       localStorage.setItem("website", website);
       localStorage.setItem("email", email);
       localStorage.setItem("contact", contact);
-      window.location = window.location;
+      window.location = '/contact';
     }
   };
   const handleClickBackButton = () => {
     localStorage.setItem("contador", "");
-    window.location = window.location;
+    window.location = '/contact';
   };
   const handleClickSendButton = () => {
     if (activity && number && what) {
