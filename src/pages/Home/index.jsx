@@ -1,4 +1,5 @@
 import "./styles.css";
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -11,14 +12,13 @@ function Home() {
           <h2>Sistemas com as</h2>
           <h2>funcionalidades que</h2>
           <h2>evoluem seu negócio</h2>
-          <button
-            type="button"
-            className="btn btn buton1"
+          <Link
+            className="btn buton1"
             style={{ backgroundColor: "#37af96" }}
+            to="products"
           >
-            {" "}
-            <a href="products">Evolua já!</a>
-          </button>
+            Evolua já!
+          </Link>
         </div>
       </div>
     </div>
