@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import "./styles.css";
 
 function Contact() {
@@ -58,12 +58,12 @@ function Contact() {
       localStorage.setItem("website", website);
       localStorage.setItem("email", email);
       localStorage.setItem("contact", contact);
-      navigate('/contact');
+      redirect('/contact');
     }
   };
   const handleClickBackButton = () => {
     localStorage.setItem("contador", "");
-    navigate('/contact');
+    redirect('/contact');
   };
   const handleClickSendButton = () => {
     if (activity && number && what) {
