@@ -91,7 +91,7 @@ function Contact() {
               <div className="row mb-3">
                 <div className="">
                   <input
-                    type="url"
+                    type="text"
                     className="form-control form-control-lg input_form1"
                     placeholder="Website"
                     value={website}
