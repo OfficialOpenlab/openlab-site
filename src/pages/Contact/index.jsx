@@ -12,7 +12,7 @@ function Contact() {
   const [number, setNumber] = useState("");
   const [what, setWhat] = useState("");
   useEffect(() => {
-    if (localStorage.getItem("contador")) {
+    if (localStorage.getItem("contador") = "") {
       setContador(localStorage.getItem("contador"));
       setName(localStorage.getItem("name"));
       setWebsite(localStorage.getItem("website"));
