@@ -11,7 +11,6 @@ function Contact() {
   const [activity, setActivity] = useState("");
   const [number, setNumber] = useState("");
   const [what, setWhat] = useState("");
-  const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("contador")) {
       setContador(localStorage.getItem("contador"));
