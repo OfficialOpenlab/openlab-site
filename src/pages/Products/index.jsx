@@ -1,4 +1,5 @@
 import "./styles.css";
+import { Link } from 'react-router-dom';
 
 function Products() {
   return (
@@ -15,13 +16,13 @@ function Products() {
             Landing Page
           </h2>
           <p className="card-text">Site Informativo</p>
-          <a
-            href="contact"
+          <Link
+            to="contact"
             className="btn botao2"
             style={{ backgroundColor: "#37af96", color: "#fafafa" }}
           >
             Faça seu orçamento aqui!
-          </a>
+          </Link>
         </div>
       </div>
       <div className="card">
@@ -36,13 +37,13 @@ function Products() {
             CRUD Page
           </h2>
           <p className="card-text">Site com Servidor</p>
-          <a
-            href="contact"
+          <Link
+            to="contact"
             className="btn botao2"
             style={{ backgroundColor: "#37af96", color: "#fafafa" }}
           >
             Faça seu orçamento aqui!
-          </a>
+          </Link>
         </div>
       </div>
       <div className="card">
@@ -57,13 +58,13 @@ function Products() {
             FullStack Page
           </h2>
           <p className="card-text">Site Completo</p>
-          <a
+          <Link
             href="contact"
             className="btn botao2"
             style={{ backgroundColor: "#37af96", color: "#fafafa" }}
           >
             Faça seu orçamento aqui!
-          </a>
+          </Link>
         </div>
       </div>
     </div>
