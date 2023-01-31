@@ -11,11 +11,13 @@ function Contact() {
   const [number, setNumber] = useState("");
   const [what, setWhat] = useState("");
   useEffect(() => {
-    setContador(localStorage.getItem("contador"));
-    setName(localStorage.getItem("name"));
-    setWebsite(localStorage.getItem("website"));
-    setEmail(localStorage.getItem("email"));
-    setContact(localStorage.getItem("contact"));
+    if (localStorage.getItem("contador")) {
+      setContador(localStorage.getItem("contador"));
+      setName(localStorage.getItem("name"));
+      setWebsite(localStorage.getItem("website"));
+      setEmail(localStorage.getItem("email"));
+      setContact(localStorage.getItem("contact"));
+    }
   }, [contador]);
   const handleChangeName = (e) => {
     return setName(e.target.value);
