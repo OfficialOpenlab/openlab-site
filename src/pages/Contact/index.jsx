@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import api from '../../services/api';
 import "./styles.css";
 
 function Contact() {
@@ -8,8 +9,8 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
   const [activity, setActivity] = useState("");
-  const [number, setNumber] = useState("");
-  const [what, setWhat] = useState("");
+  const [number, setNumber] = useState(0);
+  const [role, setRole] = useState("");
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
@@ -19,8 +20,8 @@ function Contact() {
     setEmail(localStorage.getItem("email"));
     setContact(localStorage.getItem("contact"));
     setActivity(localStorage.getItem("activity"));
-    setNumber(localStorage.getItem("number"));
-    setWhat(localStorage.getItem("what"));
+    setNumber(parseInt(localStorage.getItem("number")));
+    setRole(localStorage.getItem("role"));
   }, [contador]);
 
   const handleChangeName = (e) => {
@@ -47,31 +48,28 @@ function Contact() {
     return setNumber(e.target.value);
   };
 
-  const handleChangeWhat = (e) => {
-    return setWhat(e.target.value);
+  const handleChangeRole = (e) => {
+    return setRole(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    if (contador === '') {
-      e.preventDefault();
+    e.preventDefault();
+    if (activity && number && role) {
+      localStorage.setItem("name", "");
+      localStorage.setItem("website", "");
+      localStorage.setItem("email", "");
+      localStorage.setItem("contact", "");
+      localStorage.setItem("activity", "");
+      localStorage.setItem("number", "");
+      localStorage.setItem("role", "");
+      api
+        .post('/api/insertUser', { name, website, email, contact, activity, number, role });
+      setContador('');
+      localStorage.setItem("contador", "");
     } else {
-      e.preventDefault();
-      if (activity && number && what) {
-        localStorage.setItem("name", "");
-        localStorage.setItem("website", "");
-        localStorage.setItem("email", "");
-        localStorage.setItem("contact", "");
-        localStorage.setItem("activity", "");
-        localStorage.setItem("number", "");
-        localStorage.setItem("what", "");
-        setContador('');
-        localStorage.setItem("contador", "");
-      } else {
-        setMissing(true);
-      }
+      setMissing(true);
     }
   };
-
   const handleClickFirstButton = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("website", website);
@@ -197,20 +195,20 @@ function Contact() {
                     type="text"
                     className="form-control form-control-lg input_form1"
                     placeholder="What do you want in your project?"
-                    value={what}
-                    onChange={handleChangeWhat}
+                    value={role}
+                    onChange={handleChangeRole}
                   />
                 </div>
               </div>
 
               <div className="botao_duplo2">
-                <button
+                <a
                   type="submit"
                   className="btn botao4"
                   onClick={handleClickBackButton}
                 >
                   Back
-                </button>
+                </a>
                 <button
                   type="submit"
                   className="btn botao4"
