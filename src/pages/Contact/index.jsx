@@ -14,6 +14,9 @@ function Contact() {
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
+    if(!localStorage.getItem("contador")){
+      localStorage.setItem("contador", "")
+    }
     setContador(localStorage.getItem("contador"));
     setName(localStorage.getItem("name"));
     setWebsite(localStorage.getItem("website"));
