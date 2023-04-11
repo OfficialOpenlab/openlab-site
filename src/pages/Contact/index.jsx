@@ -10,6 +10,7 @@ function Contact() {
   const [activity, setActivity] = useState("");
   const [number, setNumber] = useState("");
   const [what, setWhat] = useState("");
+  const [missing, setMissing] = useState(false);
 
   useEffect(() => {
     setContador(localStorage.getItem("contador"));
@@ -23,60 +24,87 @@ function Contact() {
   }, [contador]);
 
   const handleChangeName = (e) => {
-    localStorage.setItem("name", name);
     return setName(e.target.value);
   };
 
   const handleChangeWebsite = (e) => {
-    localStorage.setItem("website", website);
     return setWebsite(e.target.value);
   };
 
   const handleChangeEmail = (e) => {
-    localStorage.setItem("email", email);
     return setEmail(e.target.value);
   };
 
   const handleChangeContact = (e) => {
-    localStorage.setItem("contact", contact);
     return setContact(e.target.value);
   };
 
   const handleChangeActivity = (e) => {
-    localStorage.setItem("activity", activity);
     return setActivity(e.target.value);
   };
 
   const handleChangeNumber = (e) => {
-    localStorage.setItem("number", number);
     return setNumber(e.target.value);
   };
 
   const handleChangeWhat = (e) => {
-    localStorage.setItem("what", what);
     return setWhat(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (contador === '') {
+      e.preventDefault();
+    } else {
+      e.preventDefault();
+      if (activity && number && what) {
+        localStorage.setItem("name", "");
+        localStorage.setItem("website", "");
+        localStorage.setItem("email", "");
+        localStorage.setItem("contact", "");
+        localStorage.setItem("activity", "");
+        localStorage.setItem("number", "");
+        localStorage.setItem("what", "");
+        setContador('');
+        localStorage.setItem("contador", "");
+      } else {
+        setMissing(true);
+      }
+    }
   };
-  
+
   const handleClickFirstButton = () => {
+    localStorage.setItem("name", name);
+    localStorage.setItem("website", website);
+    localStorage.setItem("email", email);
+    localStorage.setItem("contact", contact);
     if (name && website && email && contact) {
       setContador('2');
       localStorage.setItem("contador", "2");
+    } else {
+      setMissing(true);
     }
   };
   const handleClickBackButton = () => {
     setContador('');
     localStorage.setItem("contador", "");
   };
+  const handleMissing = () => {
+    return setMissing(false);
+  };
 
   return (
     <>
       <div className="container-fluid form-content">
-      <form className="forms1" onSubmit={handleSubmit}>
-      {contador === "" && (
+        <form className="forms1" onSubmit={handleSubmit}>
+          {missing && (
+            <>
+              <div class="alert alert-primary alert-dismissible fade show" style={{ width: '50%' }}>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" onClick={handleMissing}></button>
+                <span>Dados inválidos</span>
+              </div>
+            </>
+          )}
+          {contador === "" && (
             <div className="content_form1">
               <div className="row mb-3">
                 <div className="">
@@ -136,8 +164,8 @@ function Contact() {
                 </button>
               </div>
             </div>
-      )}
-      {contador === "2" && (
+          )}
+          {contador === "2" && (
             <div className="content_form1">
               <div className="row mb-3">
                 <div className="">
@@ -191,9 +219,9 @@ function Contact() {
                 </button>
               </div>
             </div>
-      )}
-        </form>
-      </div>
+          )}
+        </form >
+      </div >
     </>
   );
 }
