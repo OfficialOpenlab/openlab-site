@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import "./styles.css";
 import { Link } from 'react-router-dom';
-import api from '../../services/api';
 
 function Home() {
-  const [user, setUser] = useState([]);
 
   return (
     <div className=" container-fluid main_content">

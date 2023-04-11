@@ -203,6 +203,7 @@ function Contact() {
 
               <div className="botao_duplo2">
                 <a
+                  href={(e) => e.preventDefault()}
                   type="submit"
                   className="btn botao4"
                   onClick={handleClickBackButton}
